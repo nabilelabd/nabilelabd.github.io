@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Olly Bas — Nabil Elabd</title>
+<meta name="description" content="Olly Bas: a party quiz for a room full of people, with 4,500 questions in English and Egyptian Arabic. Designed and built by Nabil Elabd.">
+<link rel="icon" href="../assets/icons/olly-bas.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  /* Olly Bas: purple and gold, from the fez */
+  :root {
+    --ground: #F5F2FC; --surface: #FFFFFF; --panel: #2A1466;
+    --ink: #1E1238; --ink-soft: #3A2B5C; --muted: #65588A; --faint: #9488B3;
+    --line: #E1D9F2; --line-soft: #ECE6F8;
+    --accent: #6B3FE0; --bright: #F4B324; --bright-ink: #2A1A00;
+    --on-panel: #F6F1FF; --on-panel-mut: #B9A8E6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #0E0920; --surface: #170F31; --panel: #22164A;
+      --ink: #EEE8FA; --ink-soft: #D0C5EB; --muted: #9D90C2; --faint: #7568A0;
+      --line: #2A1F4A; --line-soft: #1E163A; --accent: #B69CFF;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topbar" aria-label="Apps">
+  <div class="shell">
+    <a class="brand" href="../">Nabil <em>Elabd</em></a>
+    <div class="orb-nav">
+      <a class="orb-link" href="../sipp-n-sipp/" style="--orb:#22D3EE; --orb-bg:#0A1420">
+        <svg class="orb" viewBox="0 0 200 200" aria-hidden="true"><defs><clipPath id="nc1"><circle cx="100" cy="100" r="96"/></clipPath><clipPath id="ni1"><circle cx="100" cy="100" r="54"/></clipPath></defs><circle class="orb-bg" cx="100" cy="100" r="96"/><g clip-path="url(#nc1)"><g class="wave-group"><path class="wave-b" opacity="0.35" d="M0,112 q25,-9 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/><path class="wave-a" opacity="0.9" d="M0,120 q25,-11 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/></g></g><image href="../assets/icons/sipp.png" x="46" y="46" width="108" height="108" clip-path="url(#ni1)"/><circle class="orb-ring" cx="100" cy="100" r="96" stroke-width="3"/></svg>
+        <span>Sipp</span>
+      </a>
+      <a class="orb-link" href="../facedown/" style="--orb:#63B8FF; --orb-bg:#123D8A">
+        <svg class="orb" viewBox="0 0 200 200" aria-hidden="true"><defs><clipPath id="nc2"><circle cx="100" cy="100" r="96"/></clipPath><clipPath id="ni2"><circle cx="100" cy="100" r="54"/></clipPath></defs><circle class="orb-bg" cx="100" cy="100" r="96"/><g clip-path="url(#nc2)"><g class="wave-group"><path class="wave-b" opacity="0.35" d="M0,112 q25,-9 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/><path class="wave-a" opacity="0.9" d="M0,120 q25,-11 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/></g></g><image href="../assets/icons/facedown.png" x="46" y="46" width="108" height="108" clip-path="url(#ni2)"/><circle class="orb-ring" cx="100" cy="100" r="96" stroke-width="3"/></svg>
+        <span>Facedown</span>
+      </a>
+      <a class="orb-link" href="../olly-bas/" aria-current="page" style="--orb:#F4B324; --orb-bg:#2A1466">
+        <svg class="orb" viewBox="0 0 200 200" aria-hidden="true"><defs><clipPath id="nc3"><circle cx="100" cy="100" r="96"/></clipPath><clipPath id="ni3"><circle cx="100" cy="100" r="54"/></clipPath></defs><circle class="orb-bg" cx="100" cy="100" r="96"/><g clip-path="url(#nc3)"><g class="wave-group"><path class="wave-b" opacity="0.35" d="M0,112 q25,-9 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/><path class="wave-a" opacity="0.9" d="M0,120 q25,-11 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/></g></g><image href="../assets/icons/olly-bas.png" x="46" y="46" width="108" height="108" clip-path="url(#ni3)"/><circle class="orb-ring" cx="100" cy="100" r="96" stroke-width="3"/></svg>
+        <span>Olly Bas</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="shell hero-grid">
+    <div>
+      <p class="eyebrow">Case study &middot; iOS &middot; Party game</p>
+      <h1>Olly <em>Bas</em></h1>
+      <p class="lede">A quiz for a room full of people, not a phone full of notifications. In English, or in Egyptian Arabic.</p>
+      <div class="byline">
+        <span>Designed &amp; built by <strong>Nabil Elabd</strong></span>
+        <span class="rule-dot" aria-hidden="true"></span>
+        <span>4,500+ questions</span>
+        <span class="rule-dot" aria-hidden="true"></span>
+        <span>In App&nbsp;Store review</span>
+      </div>
+      <div class="cta-row">
+        <span class="btn btn-primary" aria-disabled="true">Coming soon to the App Store</span>
+        <a class="btn btn-ghost" href="../#work">Work with me</a>
+      </div>
+    </div>
+
+    <div class="hero-art" style="--orb:#F4B324; --orb-bg:#2A1466">
+      <svg class="orb" viewBox="0 0 200 200" role="img" aria-label="The Olly Bas app icon inside a water-filled circle">
+        <defs><clipPath id="hc"><circle cx="100" cy="100" r="97"/></clipPath><clipPath id="hi"><circle cx="100" cy="100" r="62"/></clipPath></defs>
+        <circle class="orb-bg" cx="100" cy="100" r="97"/>
+        <g clip-path="url(#hc)"><g class="wave-group"><path class="wave-b" opacity="0.38" d="M0,112 q25,-8 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/><path class="wave-a" opacity="0.92" d="M0,118 q25,-11 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/></g></g>
+        <image href="../assets/icons/olly-bas.png" x="38" y="38" width="124" height="124" clip-path="url(#hi)"/>
+        <circle class="orb-ring" cx="100" cy="100" r="97" stroke-width="1.5"/>
+      </svg>
+      <p class="hero-art-caption">200 &middot; 400 &middot; 600</p>
+    </div>
+  </div>
+</header>
+
+<section class="band-line">
+  <div class="shell">
+    <div class="col">
+      <p class="eyebrow">What it is</p>
+      <p class="big-line">Two teams. Six categories. Thirty-six questions on a board, worth 200, 400 or 600. Pick a square, argue about the answer, pass the phone on.</p>
+      <p class="quiet">Olly Bas (Egyptian for "just say it") is built for the living room. Football from the World Cup to shirt numbers, Marvel to Egyptian cinema, songs you hear and posters you have to recognise, 84 categories in all. Switch between English and Arabic at any point, mid-game if you like. No account, no ads, nothing to buy.</p>
+    </div>
+  </div>
+</section>
+
+<section class="panel-band">
+  <div class="shell">
+    <p class="eyebrow">In the app</p>
+    <h2>A game show on your TV stand</h2>
+    <div class="shot-row wide">
+      <figure class="shot">
+        <img src="../assets/shots/olly-bas/03_board.jpg" alt="The game board: six categories with 200, 400 and 600 point squares" loading="lazy">
+        <figcaption><b>The board</b>Six categories, thirty-six squares, and two teams keeping score on either side.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="../assets/shots/olly-bas/05_song.jpg" alt="A Guess the Song question playing a thirty-second preview" loading="lazy">
+        <figcaption><b>Guess the song</b>Thirty seconds of the real record, streamed from Apple's own previews.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="../assets/shots/olly-bas/04_poster.jpg" alt="A Movie Posters question showing a poster with the title removed" loading="lazy">
+        <figcaption><b>Name the series</b>Posters with every trace of the title taken off. Each one was checked by eye.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="../assets/shots/olly-bas/02_lifelines.jpg" alt="The lifelines screen explaining the five lifelines each team can use" loading="lazy">
+        <figcaption><b>Lifelines</b>Call a friend, bench their best player, or call the dig before you've even seen the question.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <div class="section-head">
+      <p class="eyebrow">Engineering</p>
+      <h2>The parts that were actually hard</h2>
+    </div>
+    <div class="problems">
+      <article class="problem">
+        <p class="problem-tag">Language</p>
+        <div>
+          <h3>Written in Arabic, not translated into it</h3>
+          <p>Every question exists twice: once in English and once in Egyptian Arabic, written the way people actually talk rather than run through a translator. The buttons stay in English, so nobody gets lost switching mid-game.</p>
+        </div>
+      </article>
+      <article class="problem">
+        <p class="problem-tag">Difficulty</p>
+        <div>
+          <h3>A 600 needs a second step</h3>
+          <p>"Who says <em>I am inevitable</em>?" was first written as a 600. Anyone who watched the film knows it, so it's a 400 at best. The whole top tier was rewritten around things one layer in: not the famous line, but what's on Nick Fury's pager.</p>
+          <p>Every question also has to stand on its own, because the board shuffles. A question that says "that final" arrives with no final before it.</p>
+        </div>
+      </article>
+      <article class="problem">
+        <p class="problem-tag">Music</p>
+        <div>
+          <h3>Finding the right song, not a karaoke cover</h3>
+          <p>Song clips stream from Apple's thirty-second previews, never bundled in the app. Searching for Arabic songs by their English spelling failed about five times out of six, because every title is transliterated differently. Searching in Arabic against the Egyptian store fixed it.</p>
+          <p>Artist and title both have to match, or the search happily returns a live version, a cover, or a different song entirely.</p>
+        </div>
+      </article>
+      <article class="problem">
+        <p class="problem-tag">Video</p>
+        <div>
+          <h3>Guess Who Scored, timed by pixels</h3>
+          <p>Goals are shown as an ink drawing first, then the real footage. Rather than timing 72 clips with a stopwatch, the app's timings were measured from the video itself: the drawing is grey and the reveal is in colour, so the switch shows up in the pixels to a fraction of a second.</p>
+        </div>
+      </article>
+      <article class="problem">
+        <p class="problem-tag">Fairness</p>
+        <div>
+          <h3>No repeats, no identical games</h3>
+          <p>A question counts as used the moment its answer hits the screen, not before, so backing out of a card leaves it fresh. And two brand-new phones never deal the same first board.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band-line">
+  <div class="shell">
+    <div class="section-head">
+      <p class="eyebrow">Inside</p>
+      <h2>What's in the box</h2>
+    </div>
+    <div class="grid-cards">
+      <div><h3>84 categories</h3><p>Over 4,500 questions: football, film, TV, music, geography, history, science, riddles and charades.</p></div>
+      <div><h3>Wala Kelma</h3><p>Charades in English, Arabic and football. Scan a code with a second phone so the word never shows on the screen everyone's watching.</p></div>
+      <div><h3>Five lifelines</h3><p>Three uses each. Some help you, and some quietly ruin the other team's turn.</p></div>
+      <div><h3>Private by design</h3><p>No account, no ads, no tracking. What you've played is remembered on your phone and never leaves it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band-line">
+  <div class="shell">
+    <div class="section-head">
+      <p class="eyebrow">Built with</p>
+      <h2>Stack</h2>
+    </div>
+    <div class="stack-grid">
+      <div><h3>App</h3><ul><li>React Native &middot; Expo</li><li>TypeScript</li><li>Landscape-first layout</li></ul></div>
+      <div><h3>Content</h3><ul><li>4,500+ bilingual questions</li><li>Automated checks on every bank</li><li>Public-domain flags &amp; maps</li></ul></div>
+      <div><h3>Media</h3><ul><li>Apple music previews</li><li>TMDB posters</li><li>YouTube (privacy-enhanced)</li><li>QR codes for charades</li></ul></div>
+      <div><h3>Delivery</h3><ul><li>EAS Build &amp; Submit</li><li>Over-the-air updates</li><li>On-device storage only</li></ul></div>
+    </div>
+    <p class="quiet" style="font-size:var(--step--1);">
+      <a href="support.html">Support</a> &middot; <a href="privacy.html">Privacy policy</a>
+    </p>
+  </div>
+</section>
+
+<section class="panel-band">
+  <div class="shell next">
+    <div>
+      <p class="eyebrow">Next app</p>
+      <h2>Sipp N Sipp</h2>
+      <p class="hire-lede">A water tracker where your friends can see whether you drank it.</p>
+    </div>
+    <div class="cta-row" style="margin-top:0;">
+      <a class="btn btn-bright" href="../sipp-n-sipp/">See Sipp N Sipp &rarr;</a>
+      <a class="btn btn-outline" href="../#contact">Work with me</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="shell">
+    <a href="../">&larr; Nabil Elabd</a>
+    <span>Olly Bas &middot; iOS &middot; 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>
