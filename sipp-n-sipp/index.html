@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sipp N Sipp — Nabil Elabd</title>
+<meta name="description" content="Sipp N Sipp: a water tracker where your friends can see whether you drank it. Designed and built by Nabil Elabd.">
+<link rel="icon" href="../assets/icons/sipp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  /* Sipp: deep navy and cyan, from the app itself */
+  :root {
+    --ground: #EDF1F4; --surface: #FFFFFF; --panel: #0A1420;
+    --ink: #0A1420; --ink-soft: #2A3A4B; --muted: #56697D; --faint: #8395A6;
+    --line: #D7DFE6; --line-soft: #E4EAEF;
+    --accent: #0E7F97; --bright: #22D3EE; --bright-ink: #06202B;
+    --on-panel: #E9F2F8; --on-panel-mut: #8FA6BA;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #080E16; --surface: #0E1823; --panel: #101E2E;
+      --ink: #E6EEF6; --ink-soft: #C2D2E0; --muted: #8296AC; --faint: #64798F;
+      --line: #1E2C3B; --line-soft: #172433; --accent: #3FDCF2;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topbar" aria-label="Apps">
+  <div class="shell">
+    <a class="brand" href="../">Nabil <em>Elabd</em></a>
+    <div class="orb-nav">
+      <a class="orb-link" href="../sipp-n-sipp/" aria-current="page" style="--orb:#22D3EE; --orb-bg:#0A1420">
+        <svg class="orb" viewBox="0 0 200 200" aria-hidden="true"><defs><clipPath id="nc1"><circle cx="100" cy="100" r="96"/></clipPath><clipPath id="ni1"><circle cx="100" cy="100" r="54"/></clipPath></defs><circle class="orb-bg" cx="100" cy="100" r="96"/><g clip-path="url(#nc1)"><g class="wave-group"><path class="wave-b" opacity="0.35" d="M0,112 q25,-9 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/><path class="wave-a" opacity="0.9" d="M0,120 q25,-11 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/></g></g><image href="../assets/icons/sipp.png" x="46" y="46" width="108" height="108" clip-path="url(#ni1)"/><circle class="orb-ring" cx="100" cy="100" r="96" stroke-width="3"/></svg>
+        <span>Sipp</span>
+      </a>
+      <a class="orb-link" href="../facedown/" style="--orb:#63B8FF; --orb-bg:#123D8A">
+        <svg class="orb" viewBox="0 0 200 200" aria-hidden="true"><defs><clipPath id="nc2"><circle cx="100" cy="100" r="96"/></clipPath><clipPath id="ni2"><circle cx="100" cy="100" r="54"/></clipPath></defs><circle class="orb-bg" cx="100" cy="100" r="96"/><g clip-path="url(#nc2)"><g class="wave-group"><path class="wave-b" opacity="0.35" d="M0,112 q25,-9 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/><path class="wave-a" opacity="0.9" d="M0,120 q25,-11 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/></g></g><image href="../assets/icons/facedown.png" x="46" y="46" width="108" height="108" clip-path="url(#ni2)"/><circle class="orb-ring" cx="100" cy="100" r="96" stroke-width="3"/></svg>
+        <span>Facedown</span>
+      </a>
+      <a class="orb-link" href="../olly-bas/" style="--orb:#F4B324; --orb-bg:#2A1466">
+        <svg class="orb" viewBox="0 0 200 200" aria-hidden="true"><defs><clipPath id="nc3"><circle cx="100" cy="100" r="96"/></clipPath><clipPath id="ni3"><circle cx="100" cy="100" r="54"/></clipPath></defs><circle class="orb-bg" cx="100" cy="100" r="96"/><g clip-path="url(#nc3)"><g class="wave-group"><path class="wave-b" opacity="0.35" d="M0,112 q25,-9 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/><path class="wave-a" opacity="0.9" d="M0,120 q25,-11 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/></g></g><image href="../assets/icons/olly-bas.png" x="46" y="46" width="108" height="108" clip-path="url(#ni3)"/><circle class="orb-ring" cx="100" cy="100" r="96" stroke-width="3"/></svg>
+        <span>Olly Bas</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="shell hero-grid">
+    <div>
+      <p class="eyebrow">Case study &middot; iOS</p>
+      <h1>Sipp <em>N</em> Sipp</h1>
+      <p class="lede">A water tracker where the point isn't the water. It's that your friends can see whether you drank it.</p>
+      <div class="byline">
+        <span>Designed &amp; built by <strong>Nabil Elabd</strong></span>
+        <span class="rule-dot" aria-hidden="true"></span>
+        <span>Solo, end to end</span>
+        <span class="rule-dot" aria-hidden="true"></span>
+        <span>Live on the App&nbsp;Store</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://apps.apple.com/app/id6799624259">View on the App Store &rarr;</a>
+        <a class="btn btn-ghost" href="../#work">Work with me</a>
+      </div>
+    </div>
+
+    <div class="hero-art" style="--orb:#22D3EE; --orb-bg:#0A1420">
+      <svg class="orb" viewBox="0 0 200 200" role="img" aria-label="A circular vessel filled to 72 percent with moving water">
+        <defs><clipPath id="hero-orb"><circle cx="100" cy="100" r="97"/></clipPath></defs>
+        <circle class="orb-bg" cx="100" cy="100" r="97"/>
+        <g clip-path="url(#hero-orb)">
+          <g class="wave-group">
+            <path class="wave-b" opacity="0.38" d="M0,62 q25,-8 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/>
+            <path class="wave-a" opacity="0.92" d="M0,56 q25,-11 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/>
+          </g>
+        </g>
+        <circle class="orb-ring" cx="100" cy="100" r="97" stroke-width="1.5"/>
+      </svg>
+      <p class="hero-art-caption">72% of 2,500 ml</p>
+    </div>
+  </div>
+</header>
+
+<section class="band-line">
+  <div class="shell">
+    <div class="col">
+      <p class="eyebrow">What it is</p>
+      <p class="big-line">Three buttons sized to your own bottles. Tap one, the vessel fills, and everyone you've added sees it happen.</p>
+      <p class="quiet">Hydration apps are easy to abandon because nothing is at stake. Sipp adds the one thing that keeps a habit alive: other people watching. Friends connect by privately swapping a code, and the leaderboard ranks by how close each person got to <em>their own</em> goal, so someone chasing 4,000&nbsp;ml never beats someone chasing 2,000 just by being thirstier.</p>
+    </div>
+  </div>
+</section>
+
+<section class="panel-band">
+  <div class="shell">
+    <p class="eyebrow">In the app</p>
+    <h2>Dark, quiet, one tap deep</h2>
+    <div class="shot-row">
+      <figure class="shot">
+        <img src="../assets/shots/sipp/hi-01.jpg" alt="The Today screen, showing a cyan orb filled with water above quick-add buttons" loading="lazy">
+        <figcaption><b>Today</b>The vessel is the interface. Quick-add amounts are yours to set, because nobody's bottle is 250&nbsp;ml.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="../assets/shots/sipp/hi-02.jpg" alt="The Friends screen, showing an invite code, a leaderboard and a live activity feed" loading="lazy">
+        <figcaption><b>Friends</b>An invite code, a leaderboard scored against each person's own goal, and a live feed.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="../assets/shots/sipp/hi-03.jpg" alt="The Settings screen, showing goal, units, quick-add amounts and vessel shape options" loading="lazy">
+        <figcaption><b>Settings</b>Goal, units, amounts, and a choice of vessel: orb, bottle or glass.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <div class="section-head">
+      <p class="eyebrow">Engineering</p>
+      <h2>The parts that were actually hard</h2>
+    </div>
+    <div class="problems">
+      <article class="problem">
+        <p class="problem-tag">Sync</p>
+        <div>
+          <h3>A tap can't wait for the network</h3>
+          <p>Logging water had to work on the metro with no signal, so every entry is written locally first and pushed later. The naive version of that loses data: a tap that lands <em>while</em> a sync is in flight isn't in the response coming back, so overwriting local state with the server's view silently throws it away.</p>
+          <p>The fix was a push, then pull, then merge cycle where anything still unsynced is carried forward rather than replaced.</p>
+        </div>
+      </article>
+      <article class="problem">
+        <p class="problem-tag">Security</p>
+        <div>
+          <h3>Friends see exactly what they're allowed to</h3>
+          <p>Access rules live in the database, not in the app. A stranger can't read your profile or your drinks, or even confirm your account exists, no matter what the app asks for, because the database refuses rather than the app politely declining to show it.</p>
+        </div>
+      </article>
+      <article class="problem">
+        <p class="problem-tag">Product</p>
+        <div>
+          <h3>The day starts at 4am</h3>
+          <p>A drink at 1am belongs to the night that's still going, not to a new day nobody has woken up for. Totals, streaks, history and the leaderboard all run on that boundary.</p>
+          <p>It sounds like a detail until you get it wrong and someone's streak breaks while they're still awake.</p>
+        </div>
+      </article>
+      <article class="problem">
+        <p class="problem-tag">Motion</p>
+        <div>
+          <h3>The water is drawn, not played</h3>
+          <p>The fill isn't a video. Two waves are recalculated every frame and clipped to whichever vessel you picked, so the surface keeps moving smoothly even while the rest of the app is busy.</p>
+          <p>Passing your goal spills water over the rim and pools underneath, then settles to a trickle after a few seconds, because a permanent waterfall is a battery bill that stops meaning anything.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band-line">
+  <div class="shell">
+    <div class="section-head">
+      <p class="eyebrow">Shipping</p>
+      <h2>Getting it past Apple</h2>
+    </div>
+    <div class="col"><p style="color:var(--muted);">Plenty of people can get an app running on their own phone. The distance between that and a listing in the App Store is where most of them stop, and it's most of what this project taught.</p></div>
+    <div class="grid-cards">
+      <div><h3>Sign in with Apple</h3><p>Required once you offer any other login. Apple sends your name exactly once, on the first sign-in, so it has to be caught then or never.</p></div>
+      <div><h3>Account deletion, in app</h3><p>A hard requirement. Deleting your account removes it and every drink it owns, immediately, not by email request.</p></div>
+      <div><h3>Review, and a rejection</h3><p>The first submission came back because the reviewer couldn't get in. Fixed with a ready-made demo account that already had a friend, so the leaderboard wasn't empty.</p></div>
+      <div><h3>Everything else</h3><p>Privacy policy, export compliance, age rating, EU trader status, TestFlight, and screenshots for every screen size Apple asks for.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band-line">
+  <div class="shell">
+    <div class="section-head">
+      <p class="eyebrow">Built with</p>
+      <h2>Stack</h2>
+    </div>
+    <div class="stack-grid">
+      <div><h3>App</h3><ul><li>React Native &middot; Expo</li><li>TypeScript</li><li>Expo Router</li><li>Reanimated &middot; SVG</li></ul></div>
+      <div><h3>Backend</h3><ul><li>Supabase &middot; Postgres</li><li>Row-level security</li><li>Realtime subscriptions</li><li>Edge functions</li></ul></div>
+      <div><h3>Identity</h3><ul><li>Sign in with Apple</li><li>Email + confirmation</li><li>Password reset by link</li></ul></div>
+      <div><h3>Delivery</h3><ul><li>EAS Build &amp; Submit</li><li>TestFlight</li><li>Local notifications</li><li>Offline-first sync</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="panel-band">
+  <div class="shell next">
+    <div>
+      <p class="eyebrow">Next app</p>
+      <h2>Facedown</h2>
+      <p class="hire-lede">The card game from the table, on the phones already in your pockets.</p>
+    </div>
+    <div class="cta-row" style="margin-top:0;">
+      <a class="btn btn-bright" href="../facedown/">See Facedown &rarr;</a>
+      <a class="btn btn-outline" href="../#contact">Work with me</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="shell">
+    <a href="../">&larr; Nabil Elabd</a>
+    <span>Sipp N Sipp &middot; iOS &middot; 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>
