@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facedown — Nabil Elabd</title>
+<meta name="description" content="Facedown: a card game for two to eight players, on the phones already in your pockets. Designed and built by Nabil Elabd.">
+<link rel="icon" href="../assets/icons/facedown.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  /* Facedown: sky blue table, red and gold cards */
+  :root {
+    --ground: #EEF4FD; --surface: #FFFFFF; --panel: #1B54B8;
+    --ink: #16233C; --ink-soft: #2C3E5E; --muted: #52657F; --faint: #8193AE;
+    --line: #D3E0F2; --line-soft: #E1EAF7;
+    --accent: #D8382F; --bright: #FFD23F; --bright-ink: #2B2003;
+    --on-panel: #FFFFFF; --on-panel-mut: #CFE2FF;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #081226; --surface: #0E1C36; --panel: #123D8A;
+      --ink: #E7EEFA; --ink-soft: #C4D3EA; --muted: #8FA3C2; --faint: #6A7FA0;
+      --line: #1B2C4B; --line-soft: #14223C; --accent: #FF7A6E;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topbar" aria-label="Apps">
+  <div class="shell">
+    <a class="brand" href="../">Nabil <em>Elabd</em></a>
+    <div class="orb-nav">
+      <a class="orb-link" href="../sipp-n-sipp/" style="--orb:#22D3EE; --orb-bg:#0A1420">
+        <svg class="orb" viewBox="0 0 200 200" aria-hidden="true"><defs><clipPath id="nc1"><circle cx="100" cy="100" r="96"/></clipPath><clipPath id="ni1"><circle cx="100" cy="100" r="54"/></clipPath></defs><circle class="orb-bg" cx="100" cy="100" r="96"/><g clip-path="url(#nc1)"><g class="wave-group"><path class="wave-b" opacity="0.35" d="M0,112 q25,-9 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/><path class="wave-a" opacity="0.9" d="M0,120 q25,-11 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/></g></g><image href="../assets/icons/sipp.png" x="46" y="46" width="108" height="108" clip-path="url(#ni1)"/><circle class="orb-ring" cx="100" cy="100" r="96" stroke-width="3"/></svg>
+        <span>Sipp</span>
+      </a>
+      <a class="orb-link" href="../facedown/" aria-current="page" style="--orb:#63B8FF; --orb-bg:#123D8A">
+        <svg class="orb" viewBox="0 0 200 200" aria-hidden="true"><defs><clipPath id="nc2"><circle cx="100" cy="100" r="96"/></clipPath><clipPath id="ni2"><circle cx="100" cy="100" r="54"/></clipPath></defs><circle class="orb-bg" cx="100" cy="100" r="96"/><g clip-path="url(#nc2)"><g class="wave-group"><path class="wave-b" opacity="0.35" d="M0,112 q25,-9 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/><path class="wave-a" opacity="0.9" d="M0,120 q25,-11 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/></g></g><image href="../assets/icons/facedown.png" x="46" y="46" width="108" height="108" clip-path="url(#ni2)"/><circle class="orb-ring" cx="100" cy="100" r="96" stroke-width="3"/></svg>
+        <span>Facedown</span>
+      </a>
+      <a class="orb-link" href="../olly-bas/" style="--orb:#F4B324; --orb-bg:#2A1466">
+        <svg class="orb" viewBox="0 0 200 200" aria-hidden="true"><defs><clipPath id="nc3"><circle cx="100" cy="100" r="96"/></clipPath><clipPath id="ni3"><circle cx="100" cy="100" r="54"/></clipPath></defs><circle class="orb-bg" cx="100" cy="100" r="96"/><g clip-path="url(#nc3)"><g class="wave-group"><path class="wave-b" opacity="0.35" d="M0,112 q25,-9 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/><path class="wave-a" opacity="0.9" d="M0,120 q25,-11 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/></g></g><image href="../assets/icons/olly-bas.png" x="46" y="46" width="108" height="108" clip-path="url(#ni3)"/><circle class="orb-ring" cx="100" cy="100" r="96" stroke-width="3"/></svg>
+        <span>Olly Bas</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="shell hero-grid">
+    <div>
+      <p class="eyebrow">Case study &middot; iOS &middot; Multiplayer</p>
+      <h1>Face<em>down</em></h1>
+      <p class="lede">Four cards. Two looks. Lowest hand wins. The card game from the table, on the phones already in your pockets.</p>
+      <div class="byline">
+        <span>Designed &amp; built by <strong>Nabil Elabd</strong></span>
+        <span class="rule-dot" aria-hidden="true"></span>
+        <span>2 to 8 players</span>
+        <span class="rule-dot" aria-hidden="true"></span>
+        <span>Live on the App&nbsp;Store</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://apps.apple.com/app/id6806544964">View on the App Store &rarr;</a>
+        <a class="btn btn-ghost" href="../#work">Work with me</a>
+      </div>
+    </div>
+
+    <div class="hero-art" style="--orb:#63B8FF; --orb-bg:#123D8A">
+      <svg class="orb" viewBox="0 0 200 200" role="img" aria-label="The Facedown app icon inside a water-filled circle">
+        <defs><clipPath id="hc"><circle cx="100" cy="100" r="97"/></clipPath><clipPath id="hi"><circle cx="100" cy="100" r="62"/></clipPath></defs>
+        <circle class="orb-bg" cx="100" cy="100" r="97"/>
+        <g clip-path="url(#hc)"><g class="wave-group"><path class="wave-b" opacity="0.38" d="M0,112 q25,-8 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/><path class="wave-a" opacity="0.92" d="M0,118 q25,-11 50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 t50,0 L400,210 L0,210 Z"/></g></g>
+        <image href="../assets/icons/facedown.png" x="38" y="38" width="124" height="124" clip-path="url(#hi)"/>
+        <circle class="orb-ring" cx="100" cy="100" r="97" stroke-width="1.5"/>
+      </svg>
+      <p class="hero-art-caption">Black king: 30 points</p>
+    </div>
+  </div>
+</header>
+
+<section class="band-line">
+  <div class="shell">
+    <div class="col">
+      <p class="eyebrow">What it is</p>
+      <p class="big-line">Everyone gets four cards, face down, and may look at two of them once. After that you're on your memory, and so is everybody else.</p>
+      <p class="quiet">It's the table game that goes by Magic, Cabo, Cambio or Golf depending on who taught you, played by the rules our table plays. One person starts a table and reads out a four-letter code, everyone else types it in, and the phones become the cards. No account, no sign-up, nothing saved. When you think you're lowest, call Magic. Be wrong, and you take thirty.</p>
+    </div>
+  </div>
+</section>
+
+<section class="panel-band">
+  <div class="shell">
+    <p class="eyebrow">In the app</p>
+    <h2>Loud colours, quiet cards</h2>
+    <div class="shot-row">
+      <figure class="shot">
+        <img src="../assets/shots/facedown/sc4.jpg" alt="The Facedown home screen with the logo and buttons to start or join a table" loading="lazy">
+        <figcaption><b>Home</b>Start a table or join one. How to play is right there, taught with real cards rather than a wall of text.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="../assets/shots/facedown/sc1.jpg" alt="A round in play: face-down cards around the table and a freshly drawn three of hearts" loading="lazy">
+        <figcaption><b>In play</b>Keep it or play it. The card you just drew is the only one face up. The app marks nothing else, not even which cards you've already looked at.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="../assets/shots/facedown/sc2.jpg" alt="The round-over screen: Nabil called Magic with more than five and took thirty on top" loading="lazy">
+        <figcaption><b>Round over</b>Call Magic with more than five and you take thirty on top. Yes, that's me in the screenshot.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <div class="section-head">
+      <p class="eyebrow">Engineering</p>
+      <h2>The parts that were actually hard</h2>
+    </div>
+    <div class="problems">
+      <article class="problem">
+        <p class="problem-tag">Secrets</p>
+        <div>
+          <h3>Nobody's phone can know your cards</h3>
+          <p>In a game built on hidden information, the obvious approach, sending the whole table to every phone and hiding what you shouldn't see, means anyone curious enough can read everyone's hand.</p>
+          <p>Instead each player gets their own version of the table with everything they aren't allowed to see removed, delivered on a private channel named by a secret only their phone holds.</p>
+        </div>
+      </article>
+      <article class="problem">
+        <p class="problem-tag">Network</p>
+        <div>
+          <h3>The server is someone's phone</h3>
+          <p>The phone that starts the table holds the one true game: it checks every move against the rules and tells everyone what happened. There's no game server to pay for or keep running.</p>
+          <p>That part was written so it could move to a real server unchanged, and so a full game can be played in a test with no network at all.</p>
+        </div>
+      </article>
+      <article class="problem">
+        <p class="problem-tag">Speed</p>
+        <div>
+          <h3>Burning is a race</h3>
+          <p>The moment a card lands in the middle, anyone holding the same rank can burn it, and the first tap wins. Burns chain onto burns, a wrong burn costs you cards, and burning someone else's card means handing them one of yours, face down, unseen by either of you.</p>
+          <p>Every one of those rules is covered by tests, including one that checks no card is ever created or lost, however strange the round gets.</p>
+        </div>
+      </article>
+      <article class="problem">
+        <p class="problem-tag">Bots</p>
+        <div>
+          <h3>The practice players remembered too much</h3>
+          <p>Cards get fresh labels each round, so a label that meant a six last round can mean a three now. The practice players kept their memory between rounds and started confidently burning cards they had never seen.</p>
+          <p>Now they forget everything the moment a new deal arrives, just like people should.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band-line">
+  <div class="shell">
+    <div class="section-head">
+      <p class="eyebrow">Shipping</p>
+      <h2>Getting a party game past Apple</h2>
+    </div>
+    <div class="grid-cards">
+      <div><h3>A reviewer with nobody to play with</h3><p>A multiplayer game needs several people, and an App Store reviewer is one person. The review notes link to a full walkthrough video of a real game.</p></div>
+      <div><h3>Updates in minutes</h3><p>Rule tweaks, card art and fixes go straight to phones without a new App Store submission. Players just reopen the app.</p></div>
+      <div><h3>Testers first</h3><p>Testers and the public get updates on separate tracks, so a change can be tried on a few people before it reaches everyone.</p></div>
+      <div><h3>Practice players</h3><p>Bots to learn against or fill an empty seat, so the game works even when only two of you showed up.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band-line">
+  <div class="shell">
+    <div class="section-head">
+      <p class="eyebrow">Built with</p>
+      <h2>Stack</h2>
+    </div>
+    <div class="stack-grid">
+      <div><h3>App</h3><ul><li>React Native &middot; Expo</li><li>TypeScript</li><li>Expo Router</li><li>Audio &middot; Haptics</li></ul></div>
+      <div><h3>Game</h3><ul><li>Rules engine in pure TypeScript</li><li>Per-player hidden views</li><li>Tested rule by rule</li></ul></div>
+      <div><h3>Multiplayer</h3><ul><li>Supabase Realtime channels</li><li>Host phone as authority</li><li>Private channel per player</li></ul></div>
+      <div><h3>Delivery</h3><ul><li>EAS Build &amp; Submit</li><li>EAS Update (over the air)</li><li>TestFlight</li></ul></div>
+    </div>
+    <p class="quiet" style="font-size:var(--step--1);">
+      <a href="https://nabilelabd.github.io/facedown-site/support.html">Support</a> &middot;
+      <a href="https://nabilelabd.github.io/facedown-site/privacy.html">Privacy policy</a>
+    </p>
+  </div>
+</section>
+
+<section class="panel-band">
+  <div class="shell next">
+    <div>
+      <p class="eyebrow">Next app</p>
+      <h2>Olly Bas</h2>
+      <p class="hire-lede">A party quiz for a room full of people, in English or Egyptian Arabic.</p>
+    </div>
+    <div class="cta-row" style="margin-top:0;">
+      <a class="btn btn-bright" href="../olly-bas/">See Olly Bas &rarr;</a>
+      <a class="btn btn-outline" href="../#contact">Work with me</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="shell">
+    <a href="../">&larr; Nabil Elabd</a>
+    <span>Facedown &middot; iOS &middot; 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>
